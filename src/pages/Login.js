@@ -34,7 +34,6 @@ class Login extends React.Component {
 
   handleChanges({ target }) {
     const { id, value } = target;
-    console.log(id, value);
     this.setState({ [id]: value }, this.enabledButton);
   }
 
