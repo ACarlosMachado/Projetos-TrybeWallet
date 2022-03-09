@@ -13,7 +13,7 @@ class Header extends React.Component {
           {' '}
           { userEmail }
         </p>
-        <p data-testid="total-field">Despesa Total R$</p>
+        <p data-testid="total-field">Despesa Total R$0</p>
         <p data-testid="header-currency-field">BRL</p>
       </header>
     );
