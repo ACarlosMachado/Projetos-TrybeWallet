@@ -15,47 +15,46 @@ class Form extends React.Component {
       exchangeRates: '',
     };
     this.saveNewExpense = this.saveNewExpense.bind(this);
-    // this.dispatchCurrencies = this.dispatchCurrencies.bind(this);
+    this.fetchAllApi = this.fetchAllApi.bind(this);
   }
 
   async componentDidMount() {
     const url = 'https://economia.awesomeapi.com.br/json/all';
     const response = await fetch(url);
     const data = await response.json();
-    console.log('retorno Api====', Object.keys(data));
+    // console.log(data);
+    // console.log('retorno Api====', Object.keys(data));
     const arrayCurrency = Object.keys(data);
     const removeUSDT = arrayCurrency.filter((currencies) => (currencies !== 'USDT'));
-    // this.setState({ currency: removeUSDT });
-    console.log(this.state);
+
     const { dispatchCurrencies } = this.props;
     dispatchCurrencies(removeUSDT);
-    // return (arrayCurrency);
   }
 
   async fetchAllApi() {
     const url = 'https://economia.awesomeapi.com.br/json/all';
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({ exchangeexchangeRates: data });
+    // const removeUSDT = data.Object.keys(data).filter((valor) => valor !== 'USDT');
+    // console.log('removeUDT ===> ', removeUSDT);
+
+    this.setState({ exchangeRates: data });
     return data;
   }
 
   async saveNewExpense() {
     const { dispatchExpense } = this.props;
-    const allApi = await this.fetchAllApi;
+    const allApi = await this.fetchAllApi();
+    console.log('cliquei');
+    console.log('resultado da api =>', allApi);
     this.setState({ exchangeRates: allApi });
     dispatchExpense(this.state);
-    this.setState({ value: '',
-      description: '',
-      currency: [],
-      method: '',
-      tag: '',
-      exchangeRates: '' });
+    document.getElementById('value').value = '';
   }
 
   handleChanges({ target }) {
     const { id, value } = target;
-    this.setState({ [id]: value }, console.log(this.state));
+    this.setState({ [id]: value });
   }
 
   render() {
