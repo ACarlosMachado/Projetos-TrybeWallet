@@ -9,7 +9,7 @@ class Form extends React.Component {
     this.state = {
       value: '',
       description: '',
-      currency: '',
+      currency: 'USD',
       method: '',
       tag: '',
       exchangeRates: '',
@@ -45,11 +45,12 @@ class Form extends React.Component {
   async saveNewExpense() {
     const { dispatchExpense } = this.props;
     const allApi = await this.fetchAllApi();
-    console.log('cliquei');
-    console.log('resultado da api =>', allApi);
+    // console.log('cliquei');
+    // console.log('resultado da api =>', allApi);
     this.setState({ exchangeRates: allApi });
     dispatchExpense(this.state);
-    document.getElementById('value').value = '';
+    // document.getElementById('value').value = '';
+    this.setState({ value: '', currency: 'USD' });
   }
 
   handleChanges({ target }) {
@@ -59,12 +60,14 @@ class Form extends React.Component {
 
   render() {
     const { currencies } = this.props;
+    const { value } = this.state;
 
     return (
       <form>
         <label htmlFor="value">
           valor
           <input
+            value={ value }
             id="value"
             type="number"
             data-testid="value-input"
