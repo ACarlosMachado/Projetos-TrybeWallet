@@ -28,10 +28,10 @@ class Expenses extends React.Component {
               <td>{expense.method}</td>
               <td>{Number(expense.value).toFixed(2)}</td>
               <td>{expense.exchangeRates[expense.currency].name.split('/')[0]}</td>
-              <td>{Number(expense.exchangeRates[expense.currency].ask)}</td>
+              <td>{Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}</td>
               <td>
                 { Number(expense.value * expense.exchangeRates[expense.currency]
-                  .ask)}
+                  .ask).toFixed(2)}
               </td>
               <td>Real</td>
               <td>Edita/Excluir</td>

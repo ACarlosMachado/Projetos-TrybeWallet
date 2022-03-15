@@ -55,6 +55,7 @@ class Form extends React.Component {
 
   handleChanges({ target }) {
     const { id, value } = target;
+    console.log(id, value);
     this.setState({ [id]: value });
   }
 
@@ -104,7 +105,7 @@ class Form extends React.Component {
           >
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
-            <option value="Cartão Debito">Cartão de débito</option>
+            <option value="Cartão de débito">Cartão de débito</option>
           </select>
         </label>
         <label htmlFor="tag">
