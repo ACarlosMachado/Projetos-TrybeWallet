@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import Header from '../Components/Header';
+import Form from '../Components/Form';
 
 class Wallet extends React.Component {
   render() {
     return (
-      <Header />
+      <>
+        <Header />
+        <Form />
+      </>
     );
   }
 }
