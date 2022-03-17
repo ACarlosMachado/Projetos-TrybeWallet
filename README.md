@@ -1,16 +1,6 @@
-### Termos e acordos
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
 
----
 
-# Boas vindas ao repositório do projeto Trybe Wallet
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
----
 
 # Sumário
 
@@ -68,21 +58,7 @@ Neste projeto, verificamos se voce é capaz de:
 
 - Criar actions assíncronas na sua aplicação React que faz uso de Redux.
 
----
 
-# Entregáveis
-
-## O que deverá ser desenvolvido
-
-Neste projeto você vai desenvolver uma carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação um usuário deverá ser capaz de:
-
-- Adicionar, remover e editar um gasto;
-- Visualizar uma tabelas com seus gastos;
-- Visualizar o total de gastos convertidos para uma moeda de escolha;
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub no Course sempre que precisar!
 
 ## Desenvolvimento
 
@@ -90,127 +66,6 @@ Você deve desenvolver uma aplicação em React que use Redux como ferramenta de
 
 Através dessa aplicação, será possível realizar as operações básicas de criação e manipulação de um estado de redux.
 
-## Data de Entrega
-
-- Projeto individual.
-
-- Serão 3 dias de projeto.
-- Data de entrega para avaliação final do projeto: `15/03/2022 - 14:00h`.
-
----
-
-# Instruções para entregar seu projeto
-
-## Antes de começar a desenvolver
-
-1. Clone o repositório
-
-- `git clone git@github.com:tryber/sd-018-a-project-trybewallet.git`
-- Entre na pasta do repositório que você acabou de clonar:
-  - `cd sd-018-a-project-trybewallet`
-
-2. Instale as dependências e inicialize o projeto
-
-- Instale as dependências:
-  - `npm install`
-- Inicialize o projeto:
-  - `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
-- Verifique que os testes estão executando:
-  - `npm test` (os testes devem rodar e falhar)
-
-3. Crie uma branch a partir da branch `master`
-
-- Verifique que você está na branch `master`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `master`
-  - Exemplo: `git checkout master`
-- Agora, crie uma branch onde você vai guardar os commits do seu projeto
-
----
-
-## Durante o desenvolvimento
-
-- Faça `commits` das alterações que você fizer no código regularmente
-
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
-
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u origin nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
-
----
-
-## Depois de terminar o desenvolvimento (opcional)
-
-Para **"entregar"** seu projeto, siga os passos a seguir:
-
-- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  - No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
-
----
-
-# Como desenvolver
-
-Nessa aplicação você deverá **obrigatoriamente** utilizar o seguinte formato do estado global:
-
-```
-{
-  user: {
-    email: '',
-  },
-  wallet: {
-    currencies: [],
-    expenses: []
-  }
-}
-```
-
-É importante respeitar esse formato para que o avaliador funcione corretamente. Você pode adicionar novos campos ao seu estado global, mas essa estrutura básica deve se manter. Por exemplo, você pode adicionar uma propriedade `isFetching` no seu estado. Mas você **não** pode salvar as despesas em uma chave diferente de `wallet.expenses`.
-
-**Observações Importantes:**
-
-- Devido a estrutura que o avaliador utiliza para realizar os testes, é necessário que o seu Redux esteja configurado, ou seja, a store e os reducers estejam criados e conectados.
-- É necessário que o `<Provider />` e o seu `<BrowserRouter />` estejam no arquivo index.js e não no `<App />`.
-- Também será necessário a instalação da biblioteca PropTypes utilizando o comando `npm install prop-types`.
-
-## Linter
-
-Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o _linter_ localmente no projeto, execute o comando abaixo:
-
-`npm run lint`
-
-⚠ PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO! ⚠
-
-Aqui encontram-se os requisitos do projeto. Em cada requisito você encontrara uma imagem de um protótipo de como sua aplicação deve ficar. Estilo da página não será avaliado.
-
----
-
-## Configurando o Redux DevTools
-
-Pra usarmos o Redux DevTools com o Redux-Thunk, vamos utilizar uma biblioteca chamada `composeWithDevTools`, ela já está no package.json, a única coisa que você vai precisar fazer é configurar a sua store, por exemplo:
-
-```
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import reducer from '../reducers';
-
-const store = createStore(
-  reducer,
-  composeWithDevTools(
-    applyMiddleware(thunk),
-  ),
-);
-
-export default store;
-```
-
----
 
 ## Documentação da API de Cotações de Moedas
 
@@ -245,49 +100,6 @@ Se você quiser aprender mais informações sobre a API, veja a [documentação]
 
 ---
 
-## Execução de testes unitários
-
-Vamos utilizar [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) para execução dos testes unitários.
-
-Esse _framework_ de testes utiliza algumas marcações no código para verificar a solução proposta, uma dessas marcações é o atributo `data-testid` e faremos uso dele aqui.
-
-Na descrição dos requisitos (logo abaixo) será pedido que seja feita a adição de atributos `data-testid` nos elementos _HTML_. Vamos a um exemplo para deixar claro essa configuração:
-
-Se o requisito pedir "crie um botão e adicione o id de teste (ou `data-testid`) com o valor `my-action`, você pode criar:
-
-```html
-<button data-testid="my-action"></button>
-```
-
-ou
-
-```html
-<a data-testid="my-action"><a /></a>
-```
-
-ou seja, o atributo `data-testid="my-action"` servirá para o React Testing Library(RTL) identificar o elemento e dessa forma, conseguiremos realizar testes unitários focados no comportamento da aplicação.
-
-Em alguns requisitos, utilizamos o `getByRole` para poder selecionar os elementos de forma semântica. Portanto atente-se às instruções de cada requisito. Por exemplo, se o requisito pedir explicitamente um `button`, você deverá utilizar exatamente esse elemento.
-
-Afim de verificar a solução proposta, você pode executar todos os testes unitários localmente, basta executar:
-
-```bash
-npm test
-```
-
-### Dica: desativando testes
-
-Para rodar apenas um teste, basta a utilização da função `.only` após o describe. Com isso, será possível que apenas um requisito rode localmente e seja avaliado.
-
-![image](describe-only.png)
-![image](only-all-green.png)
-
-Caso queira avaliar apenas um tópico do requisito, você também pode usar o `.only` após o `test`.
-
-![image](test-only.png)
-![image](only-one-green.png)
-
----
 
 # Requisitos do projeto
 
