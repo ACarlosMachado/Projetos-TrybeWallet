@@ -1,0 +1,27 @@
+header {
+    background-color: rgb(53, 245, 53);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+   
+}
+
+#divOne  {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    
+} 
+
+ #divTwo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-right: 100px;    
+} 
+
+#totalField, img {
+    padding-right: 10px;
+}
+

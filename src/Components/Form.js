@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes, { string } from 'prop-types';
 import { newExpense, walletCurriencies } from '../actions/index';
+import '../Css/Form.css';
 
 class Form extends React.Component {
   constructor() {
@@ -10,8 +11,8 @@ class Form extends React.Component {
       value: '',
       description: '',
       currency: 'USD',
-      method: '',
-      tag: '',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
       exchangeRates: '',
     };
     this.saveNewExpense = this.saveNewExpense.bind(this);
@@ -64,19 +65,23 @@ class Form extends React.Component {
     const { value } = this.state;
 
     return (
-      <form>
+      <form className="form">
         <label htmlFor="value">
-          valor
+          Valor:
+          {' '}
           <input
             value={ value }
             id="value"
             type="number"
+            placeholder="Digite o valor"
             data-testid="value-input"
             onChange={ (e) => this.handleChanges(e) }
           />
         </label>
         <label htmlFor="currency">
-          Moeda
+          {' '}
+          Moeda:
+          {' '}
           <select
             id="currency"
             data-testid="currency-input"
@@ -97,7 +102,9 @@ class Form extends React.Component {
           </select>
         </label>
         <label htmlFor="method">
-          Método de pagamento
+          {' '}
+          Método de pagamento:
+          {' '}
           <select
             id="method"
             data-testid="method-input"
@@ -109,7 +116,9 @@ class Form extends React.Component {
           </select>
         </label>
         <label htmlFor="tag">
-          Categoria
+          {' '}
+          Categoria:
+          {' '}
           <select
             id="tag"
             data-testid="tag-input"
@@ -124,7 +133,9 @@ class Form extends React.Component {
           </select>
         </label>
         <label htmlFor="description">
-          Descrição
+          {' '}
+          Descrição:
+          {' '}
           <input
             type="text"
             id="description"
@@ -132,6 +143,7 @@ class Form extends React.Component {
             onChange={ (e) => this.handleChanges(e) }
           />
         </label>
+        {' '}
         <button
           id="btnSubmit"
           type="button"

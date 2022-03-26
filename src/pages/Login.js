@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import userAction from '../actions';
+// import '../Css/LoginStyle.css';
+import '../Css/LoginStyle.css';
 
 class Login extends React.Component {
   state = {
@@ -40,30 +42,38 @@ class Login extends React.Component {
   render() {
     const { isButtonLoginDisabled } = this.state;
     return (
-      <form className="formLogin">
-        <input
-          type="email"
-          data-testid="email-input"
-          id="email"
-          placeholder="Digite seu email"
-          onChange={ (e) => this.handleChanges(e) }
-        />
-        <input
-          type="password"
-          data-testid="password-input"
-          id="password"
-          placeholder="Senha"
-          onChange={ (e) => this.handleChanges(e) }
-        />
-        <button
-          type="button"
-          disabled={ isButtonLoginDisabled }
-          onClick={ this.saveEmailInState }
-        >
-          Entrar
-        </button>
+      <section>
+        <div id="title">
+          <h2>TrybeWallet</h2>
+          <img src="https://img.icons8.com/bubbles/50/000000/money.png" alt="ícone dinheiro" />
+          {' '}
 
-      </form>
+        </div>
+        <form className="formLogin">
+          <input
+            type="email"
+            data-testid="email-input"
+            id="email"
+            placeholder="Digite seu email"
+            onChange={ (e) => this.handleChanges(e) }
+          />
+          <input
+            type="password"
+            data-testid="password-input"
+            id="password"
+            placeholder="Senha"
+            onChange={ (e) => this.handleChanges(e) }
+          />
+          <button
+            type="button"
+            disabled={ isButtonLoginDisabled }
+            onClick={ this.saveEmailInState }
+          >
+            Entrar
+          </button>
+
+        </form>
+      </section>
     );
   }
 }
